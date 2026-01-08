@@ -68,7 +68,7 @@ export function Footer() {
             </p>
 
             {/* Newsletter */}
-            <div className="mb-6 w-96">
+            <div className="mb-6 lg:w-96">
               <h4 className="font-semibold mb-3">Subscribe to our newsletter</h4>
               <div className="flex gap-2">
                 <div className="relative flex-1">
@@ -89,7 +89,7 @@ export function Footer() {
                   <a
                     key={social.name}
                     href={social.href}
-                    className={`w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center transition-all hover:scale-110 hover:border-orange-500/50 ${social.color}`}
+                    className={`w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center transition-all hover:scale-110 hover:border-sky-500/50 ${social.color}`}
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-orange-500 transition-colors text-sm"
+                    className="text-muted-foreground hover:text-sky-500 transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -124,7 +124,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-orange-500 transition-colors text-sm"
+                    className="text-muted-foreground hover:text-sky-500 transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -141,7 +141,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-orange-500 transition-colors text-sm"
+                    className="text-muted-foreground hover:text-sky-500 transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -159,13 +159,13 @@ export function Footer() {
             </p>
 
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-muted-foreground hover:text-orange-500 transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-sky-500 transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-muted-foreground hover:text-orange-500 transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-sky-500 transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-muted-foreground hover:text-orange-500 transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-sky-500 transition-colors">
                 Cookie Policy
               </a>
             </div>

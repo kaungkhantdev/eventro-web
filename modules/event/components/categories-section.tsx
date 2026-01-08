@@ -1,5 +1,11 @@
 'use client'
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 import { Music, Code, Briefcase, Palette, Utensils, Heart, Trophy, Camera, Gamepad2, Microscope, Plane, Book } from 'lucide-react'
 
 interface Category {
@@ -99,7 +105,7 @@ const categories: Category[] = [
 
 export function CategoriesSection() {
   return (
-    <section className="w-full py-10 px-4 sm:px-6 lg:px-8">
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-overlay opacity-20" />
 
@@ -117,35 +123,41 @@ export function CategoriesSection() {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-4">
-          {categories.map((category, index) => {
-            const IconComponent = category.icon
-            return (
-              <div
-                key={category.id}
-                className="group relative bg-card hover:bg-card/80 rounded-2xl p-4 border border-border hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer"
-                style={{
-                  animation: `slideUp 0.6s ease-out ${index * 0.05}s both`
-                }}
-              >
-                {/* Icon with Direct Color */}
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className={`w-5 h-5 ${category.color}`} />
-                </div>
+        <Carousel className="w-full">
+          <CarouselContent className="py-3">
+            {categories.map((category, index) => {
+                const IconComponent = category.icon
+                return (
+                  <CarouselItem key={index} className="md:pl-4 md:basis-1/4 lg:basis-1/6">
+                    <div
+                      key={category.id}
+                      className="group relative bg-card hover:bg-card/80 rounded-2xl p-4 border border-border hover:border-sky-500/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                      style={{
+                        animation: `slideUp 0.6s ease-out ${index * 0.05}s both`
+                      }}
+                    >
+                      {/* Icon with Direct Color */}
+                      <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className={`w-5 h-5 ${category.color}`} />
+                      </div>
 
-                {/* Category Name */}
-                <h3 className="text-base font-semibold mb-1 group-hover:text-orange-500 transition-colors">
-                  {category.name}
-                </h3>
+                      {/* Category Name */}
+                      <h3 className="text-base font-semibold mb-1 group-hover:text-sky-500 transition-colors">
+                        {category.name}
+                      </h3>
 
-                {/* Event Count */}
-                <p className="text-sm text-muted-foreground">
-                  {category.count.toLocaleString()} events
-                </p>
-              </div>
-            )
-          })}
-        </div>
+                      {/* Event Count */}
+                      <p className="text-sm text-muted-foreground">
+                        {category.count.toLocaleString()} events
+                      </p>
+                    </div>
+                  </CarouselItem>
+                )
+              })}
+          </CarouselContent>
+          <CarouselPrevious className='-left-2 lg:-left-12' />
+          <CarouselNext className='-right-2 lg:-right-12' />
+        </Carousel>
       </div>
     </section>
   )

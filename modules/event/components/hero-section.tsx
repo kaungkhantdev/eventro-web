@@ -6,7 +6,7 @@ import { Search, Sparkles } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-10">
+    <section className="relative flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16">
       {/* Animated Background */}
       <div className="absolute inset-0 grid-overlay opacity-20" />
       <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-gradient-primary opacity-20 blur-3xl rounded-full animate-pulse-glow" />
@@ -45,9 +45,11 @@ export function HeroSection() {
               Connect with like-minded people and create unforgettable memories.
             </p>
 
-            <div className=' mx-auto w-96 relative'>
-              <Input className='h-12 rounded-full' placeholder='Search everything you need!' />
-              <Search className='absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground' />
+            <div className=' mx-auto md:w-96 relative'>
+              <Input className='h-12 rounded-full border-primary focus-visible:border-primary focus-visible:ring-primary/50' placeholder=' Search everything you need!' />
+              <div className='cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 bg-primary rounded-full p-2'>
+                <Search className='w-5 h-5 text-white' />
+              </div>
             </div>
 
           </div>

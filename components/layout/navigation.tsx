@@ -10,7 +10,7 @@ export function Navigation() {
       <nav className="">
         <div className="px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="md:flex items-center gap-8 hidden">
+            <div className="">
               {/* logo */}
               <Image
                 loading="lazy"
@@ -25,7 +25,7 @@ export function Navigation() {
             {/* authentication buttons */}
             <div className="flex items-center gap-2">
               <Button variant="ghost">Login</Button>
-              <Button className="">Sign up</Button>
+              <Button className="rounded-full">Sign up</Button>
             </div>
           </div>
         </div>

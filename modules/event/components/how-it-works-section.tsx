@@ -1,6 +1,6 @@
 'use client'
 
-import { Compass, CreditCard, Mail, Sparkles } from 'lucide-react'
+import { Compass, Calendar, Ticket, Sparkle } from 'lucide-react'
 
 interface Step {
   id: string
@@ -25,7 +25,7 @@ const steps: Step[] = [
     number: '02',
     title: 'Choose & Book',
     description: 'Select your event, pick your preferred date and time, and secure your spot with our seamless booking system.',
-    icon: <CreditCard className="w-8 h-8 text-pink-500" />,
+    icon: <Calendar className="w-8 h-8 text-pink-500" />,
     gradient: 'from-pink-500 to-rose-500'
   },
   {
@@ -33,7 +33,7 @@ const steps: Step[] = [
     number: '03',
     title: 'Get Your Ticket',
     description: 'Receive instant confirmation and your digital ticket via email. Access everything from your dashboard.',
-    icon: <Mail className="w-8 h-8 text-purple-500" />,
+    icon: <Ticket className="w-8 h-8 text-purple-500" />,
     gradient: 'from-purple-500 to-indigo-500'
   },
   {
@@ -41,14 +41,14 @@ const steps: Step[] = [
     number: '04',
     title: 'Enjoy the Experience',
     description: 'Show up, have fun, and create amazing memories. Share your experience and connect with other attendees.',
-    icon: <Sparkles className="w-8 h-8 text-blue-500" />,
+    icon: <Sparkle className="w-8 h-8 text-blue-500" />,
     gradient: 'from-blue-500 to-cyan-500'
   }
 ]
 
 export function HowItWorksSection() {
   return (
-    <section className="w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-overlay opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-primary opacity-10 blur-3xl rounded-full animate-pulse-glow" />
@@ -79,7 +79,7 @@ export function HowItWorksSection() {
             >
               {/* Connection Line (hidden on mobile, shown on lg+) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-[calc(50%+3rem)] w-[calc(100%-3rem)] h-0.5 bg-gradient-to-r from-orange-500/50 to-transparent" />
+                <div className="hidden lg:block absolute top-16 left-[calc(50%+3rem)] w-[calc(100%-3rem)] h-0.5 bg-gradient-to-r from-sky-500/50 to-transparent" />
               )}
 
               {/* Card */}
@@ -95,7 +95,7 @@ export function HowItWorksSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-bold mb-3 font-outfit group-hover:text-orange-500 transition-colors">
+                <h3 className="text-lg font-bold mb-3 font-outfit group-hover:text-sky-500 transition-colors">
                   {step.title}
                 </h3>
 

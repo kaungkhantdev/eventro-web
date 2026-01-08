@@ -96,12 +96,38 @@ const mockEvents: Event[] = [
     category: 'Art',
     featured: false,
     price: '$45'
-  }
+  },
+  {
+    id: '7',
+    title: 'Tech Conference 2026',
+    description: 'Join the biggest tech conference of the year featuring industry leaders and innovative workshops.',
+    date: 'Jan 25, 2026',
+    time: '9:00 AM',
+    location: 'San Francisco, CA',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
+    attendees: 1250,
+    category: 'Technology',
+    featured: true,
+    price: '$299'
+  },
+  {
+    id: '8',
+    title: 'Summer Music Festival',
+    description: 'Experience live performances from top artists in an unforgettable outdoor setting.',
+    date: 'Feb 15, 2026',
+    time: '2:00 PM',
+    location: 'Los Angeles, CA',
+    image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80',
+    attendees: 5000,
+    category: 'Music',
+    featured: true,
+    price: '$149'
+  },
 ]
 
 export function EventsSection() {
   return (
-    <section className="w-full py-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-16 flex items-center justify-between">
@@ -109,6 +135,7 @@ export function EventsSection() {
             Events near at{' '}
             <span className="text-gradient-primary">Bangkok</span>
           </h2>
+          <Button variant={'link'}>Sell all events</Button>
         </div>
 
         {/* Events Grid */}
