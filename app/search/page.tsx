@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import {
   Select,
   SelectContent,
@@ -30,9 +31,15 @@ const allCategories = {
   };
 
 export default function Home() {
+  const router = useRouter()
+
+  const handleEventClick = (id: string) => {
+    router.push(`/event/${id}`)
+  }
+
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="mx-auto relative z-10">
         {/* search & filter  */}
         <div className='mx-auto md:w-96 relative mb-6'>
           <Input className='h-12 rounded-full border-primary focus-visible:border-primary focus-visible:ring-primary/50' placeholder=' Search everything you need!' />
@@ -40,7 +47,7 @@ export default function Home() {
             <Search className='w-5 h-5 text-white' />
           </div>
         </div>
-        
+
 
         {/* Section Header */}
         <div className="mb-4 md:flex items-center justify-between">
@@ -92,7 +99,7 @@ export default function Home() {
               {[allCategories, ...categories].map((category, index) => {
                   const IconComponent = category.icon
                   return (
-                    <CarouselItem key={index} className="md:pl-1 basis-1/3 md:basis-1/6 lg:basis-1/9">
+                    <CarouselItem key={index} className="md:pl-1 basis-1/3 md:basis-1/6 lg:basis-1/9 xl:basis-1/12">
                       <div
                         key={category.id}
                         className="group relative py-1 px-3 hover:border-sky-500/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer"
@@ -114,13 +121,13 @@ export default function Home() {
                   )
                 })}
             </CarouselContent>
-            <CarouselPrevious className='-left-2 lg:-left-12' />
-            <CarouselNext className='-right-2 lg:-right-12' />
+            <CarouselPrevious className='-left-2 lg:-left-4' />
+            <CarouselNext className='-right-2 lg:-right-4' />
           </Carousel>
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-12">
           {[...mockEvents, ...mockEvents].map((event, index) => (
             <EventCard
               key={index}
@@ -136,6 +143,7 @@ export default function Home() {
               featured={event.featured}
               price={event.price}
               organizer={event.organizer}
+              onClick={handleEventClick}
             />
           ))}
         </div>

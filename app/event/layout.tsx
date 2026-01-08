@@ -1,7 +1,7 @@
 import { Footer } from "@/components/layout/footer";
 import { Navigation } from "@/components/layout/navigation";
 
-export default function SearchLayout({
+export default function EventLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -9,7 +9,7 @@ export default function SearchLayout({
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Navigation />
-        {children}
+      {children}
       <Footer />
     </div>
   );
