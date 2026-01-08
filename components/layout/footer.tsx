@@ -1,6 +1,6 @@
 'use client'
 
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Copyright } from 'lucide-react'
 import Image from 'next/image'
 import Logo from '@/public/images/logo.svg'
 import { Input } from '@/components/ui/input'
@@ -50,7 +50,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="">
-      <div className="px-4 sm:px-6 lg:px-8 py-12 rounded-2xl border m-5">
+      <div className="px-6 sm:px-6 lg:px-12 py-6 lg:py-12 rounded-3xl border-border border-t lg:border lg:m-5">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand Section */}
@@ -67,19 +67,6 @@ export function Footer() {
               we bring people together for unforgettable experiences.
             </p>
 
-            {/* Newsletter */}
-            <div className="mb-6 lg:w-96">
-              <h4 className="font-semibold mb-3">Subscribe to our newsletter</h4>
-              <div className="flex gap-2">
-                <div className="relative flex-1">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input className='rounded-lg' />
-                </div>
-                <Button className='rounded-lg'>
-                  Subscribe
-                </Button>
-              </div>
-            </div>
 
             {/* Social Links */}
             <div>
@@ -152,10 +139,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border">
+        <div className="pt-8 ">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Eventro. All rights reserved.
+            <p className="flex items-center gap-2 text-muted-foreground text-sm text-center md:text-left">
+              <Copyright size={'14px'} /> {new Date().getFullYear()} Eventro. All rights reserved.
             </p>
 
             <div className="flex gap-6 text-sm">

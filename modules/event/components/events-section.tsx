@@ -127,7 +127,7 @@ const mockEvents: Event[] = [
 
 export function EventsSection() {
   return (
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="w-full pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-16 flex items-center justify-between">

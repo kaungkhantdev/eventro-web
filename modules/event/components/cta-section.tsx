@@ -54,11 +54,11 @@ export function CtaSection() {
 
         {/* Description */}
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-          People use Meetup to meet new people, learn new things, find support, get out of their comfort zones, and pursue their passions, together. Membership is free.
+          People use Meetup to meet new people, learn new things, find support, get out of their comfort zones, and pursue their passions, together.
         </p>
 
         {/* CTA Button */}
-        <Button className="px-6 h-15 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105">
+        <Button className="px-6 h-15 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2">
           Sign up for free
         </Button>
 
