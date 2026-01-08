@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search, Sparkles } from 'lucide-react'
 
@@ -47,7 +46,7 @@ export function HeroSection() {
 
             <div className=' mx-auto md:w-96 relative'>
               <Input className='h-12 rounded-full border-primary focus-visible:border-primary focus-visible:ring-primary/50' placeholder=' Search everything you need!' />
-              <div className='cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 bg-primary rounded-full p-2'>
+              <div className='g-gradient-primary hover:opacity-90 transition-all cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 bg-primary rounded-full p-2'>
                 <Search className='w-5 h-5 text-white' />
               </div>
             </div>

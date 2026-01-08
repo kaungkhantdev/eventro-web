@@ -25,7 +25,7 @@ export function Navigation() {
             {/* authentication buttons */}
             <div className="flex items-center gap-2">
               <Button variant="ghost">Login</Button>
-              <Button className="rounded-full">Sign up</Button>
+              <Button className="rounded-full bg-gradient-primary hover:opacity-90 transition-all">Sign up</Button>
             </div>
           </div>
         </div>

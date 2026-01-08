@@ -1,10 +1,8 @@
 'use client'
 
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Copyright } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Copyright } from 'lucide-react'
 import Image from 'next/image'
 import Logo from '@/public/images/logo.svg'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
 
 const footerLinks = {
   discover: {

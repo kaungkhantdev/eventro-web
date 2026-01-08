@@ -16,7 +16,7 @@ interface Category {
   color: string
 }
 
-const categories: Category[] = [
+export const categories: Category[] = [
   {
     id: '1',
     name: 'Music',
@@ -54,14 +54,14 @@ const categories: Category[] = [
   },
   {
     id: '6',
-    name: 'Health & Wellness',
+    name: 'Health',
     icon: Heart,
     count: 876,
     color: 'text-red-500'
   },
   {
     id: '7',
-    name: 'Sports & Fitness',
+    name: 'Sports',
     icon: Trophy,
     count: 1650,
     color: 'text-yellow-500'

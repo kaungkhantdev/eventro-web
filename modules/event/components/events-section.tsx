@@ -1,8 +1,7 @@
 'use client'
 
-import { Calendar, MapPin, Users, ArrowRight, Clock, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import { EventCard } from './event-card'
 
 interface Event {
   id: string
@@ -16,9 +15,10 @@ interface Event {
   category: string
   featured: boolean
   price: string
+  organizer: string
 }
 
-const mockEvents: Event[] = [
+export const mockEvents: Event[] = [
   {
     id: '1',
     title: 'Tech Conference 2026',
@@ -30,7 +30,8 @@ const mockEvents: Event[] = [
     attendees: 1250,
     category: 'Technology',
     featured: true,
-    price: '$299'
+    price: '$299',
+    organizer: 'Tech Community'
   },
   {
     id: '2',
@@ -43,7 +44,8 @@ const mockEvents: Event[] = [
     attendees: 5000,
     category: 'Music',
     featured: true,
-    price: '$149'
+    price: '$149',
+    organizer: 'Music Promoters'
   },
   {
     id: '3',
@@ -56,7 +58,8 @@ const mockEvents: Event[] = [
     attendees: 800,
     category: 'Business',
     featured: false,
-    price: '$199'
+    price: '$199',
+    organizer: 'Business Network'
   },
   {
     id: '4',
@@ -69,7 +72,8 @@ const mockEvents: Event[] = [
     attendees: 350,
     category: 'Food',
     featured: false,
-    price: '$89'
+    price: '$89',
+    organizer: 'Culinary Guild'
   },
   {
     id: '5',
@@ -82,7 +86,8 @@ const mockEvents: Event[] = [
     attendees: 500,
     category: 'Business',
     featured: true,
-    price: 'Free'
+    price: 'Free',
+    organizer: 'Business Network'
   },
   {
     id: '6',
@@ -95,7 +100,8 @@ const mockEvents: Event[] = [
     attendees: 1200,
     category: 'Art',
     featured: false,
-    price: '$45'
+    price: '$45',
+    organizer: 'Art Collective'
   },
   {
     id: '7',
@@ -108,7 +114,8 @@ const mockEvents: Event[] = [
     attendees: 1250,
     category: 'Technology',
     featured: true,
-    price: '$299'
+    price: '$299',
+    organizer: 'Tech Community'
   },
   {
     id: '8',
@@ -121,7 +128,8 @@ const mockEvents: Event[] = [
     attendees: 5000,
     category: 'Music',
     featured: true,
-    price: '$149'
+    price: '$149',
+    organizer: 'Music Promoters'
   },
 ]
 
@@ -140,44 +148,22 @@ export function EventsSection() {
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-          {mockEvents.map((event, index) => (
-            <div
+          {mockEvents.map((event) => (
+            <EventCard
               key={event.id}
-              className="group relative rounded-3xl transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-card"
-            >
-              {/* Event Image */}
-              <div className="relative h-40">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-2xl"
-                />
-
-                {/* Price Badge */}
-                <div className="absolute top-4 left-4 z-10 bg-white text-gray-900 text-sm font-semibold py-1 px-3 rounded-full shadow-md">
-                  {event.price}
-                </div>
-              </div>
-
-              {/* Event Details */}
-              <div className="pt-3">
-                {/* Date & Time */}
-                <p className="text-sm text-muted-foreground mb-2">
-                  {event.date} • {event.time}
-                </p>
-
-                {/* Event Title */}
-                <h3 className="text-xl font-bold mb-1 font-outfit group-hover:text-sky-500 transition-colors">
-                  {event.title}
-                </h3>
-
-                {/* Organizer/Category */}
-                <p className="text-sm text-muted-foreground">
-                  by {event.category === 'Technology' ? 'Tech Community' : event.category === 'Music' ? 'Music Promoters' : event.category === 'Business' ? 'Business Network' : event.category === 'Food' ? 'Culinary Guild' : event.category === 'Art' ? 'Art Collective' : 'Boring Club'}
-                </p>
-              </div>
-            </div>
+              id={event.id}
+              title={event.title}
+              description={event.description}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              image={event.image}
+              attendees={event.attendees}
+              category={event.category}
+              featured={event.featured}
+              price={event.price}
+              organizer={event.organizer}
+            />
           ))}
         </div>
       </div>
