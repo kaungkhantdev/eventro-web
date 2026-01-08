@@ -2,16 +2,18 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   MapPin,
-  Star,
   Share2,
   Bookmark,
   Calendar,
+  Search,
+  ArrowLeft,
 } from "lucide-react";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
+import Link from "next/link";
 
 // This would come from your API/database
 async function getEventData(id: string) {
@@ -246,6 +248,28 @@ export default async function EventDetailPage({
                     </Button>
                   </div>
                 </div>
+              </div>
+
+              {/* button get back & search */}
+              <div>
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <Link
+                    href="/"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                  >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    Go back to previous page
+                  </Link>
+
+                  <Link href="/search">
+                    <Button variant="ghost" className="border-primary/50 hover:bg-primary/10 rounded-full gap-2">
+                      <Search className="w-4 h-4" />
+                      Search Events
+                    </Button>
+                  </Link>
+                </div>
+
               </div>
             </div>
             

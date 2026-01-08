@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface EventCardProps {
   id: string
@@ -24,12 +25,11 @@ export function EventCard({
   image,
   price,
   organizer,
-  onClick,
 }: EventCardProps) {
   return (
-    <div
+    <Link
       className="group relative rounded-3xl transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-card"
-      onClick={() => onClick?.(id)}
+      href={`/event/${id}`}
     >
       {/* Event Image */}
       <div className="relative h-40">
@@ -61,6 +61,6 @@ export function EventCard({
         {/* Organizer */}
         <p className="text-sm text-muted-foreground">by {organizer}</p>
       </div>
-    </div>
+    </Link>
   )
 }

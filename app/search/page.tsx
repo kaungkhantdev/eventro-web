@@ -1,5 +1,3 @@
-'use client'
-import { useRouter } from 'next/navigation'
 import {
   Select,
   SelectContent,
@@ -19,7 +17,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { EventCard } from '@/modules/event/components/event-card'
 import { Search, Sparkle } from 'lucide-react'
-import { categories } from "@/modules/event/components/categories-section"
+import { categories } from "@/modules/event/data/categories"
 import { mockEvents } from "@/modules/event/components/events-section"
 
 const allCategories = {
@@ -31,11 +29,6 @@ const allCategories = {
   };
 
 export default function Home() {
-  const router = useRouter()
-
-  const handleEventClick = (id: string) => {
-    router.push(`/event/${id}`)
-  }
 
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -143,7 +136,6 @@ export default function Home() {
               featured={event.featured}
               price={event.price}
               organizer={event.organizer}
-              onClick={handleEventClick}
             />
           ))}
         </div>

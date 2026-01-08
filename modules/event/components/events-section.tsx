@@ -1,8 +1,6 @@
-'use client'
-
-import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { EventCard } from './event-card'
+import Link from 'next/link'
 
 interface Event {
   id: string
@@ -135,11 +133,6 @@ export const mockEvents: Event[] = [
 ]
 
 export function EventsSection() {
-  const router = useRouter()
-
-  const handleEventClick = (id: string) => {
-    router.push(`/event/${id}`)
-  }
 
   return (
     <section className="w-full pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -150,7 +143,7 @@ export function EventsSection() {
             Events near at{' '}
             <span className="text-gradient-primary">Bangkok</span>
           </h2>
-          <Button variant={'link'}>Sell all events</Button>
+          <Link href={'search'}><Button variant={'link'}>Sell all events</Button></Link>
         </div>
 
         {/* Events Grid */}
@@ -170,7 +163,6 @@ export function EventsSection() {
               featured={event.featured}
               price={event.price}
               organizer={event.organizer}
-              onClick={handleEventClick}
             />
           ))}
         </div>
