@@ -4,6 +4,7 @@ import Image from "next/image"
 import Logo from '@/public/images/logo.svg'
 import { Button } from "@/components/ui/button"
 
+
 export function Navigation() {
 
   return (
@@ -27,6 +28,7 @@ export function Navigation() {
               <Button variant="ghost">Login</Button>
               <Button className="rounded-full bg-gradient-primary hover:opacity-90 transition-all">Sign up</Button>
             </div>
+            
           </div>
         </div>
       </nav>
