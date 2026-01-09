@@ -14,6 +14,8 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import NavAuth from '@/components/layout/nav-auth'
+import { Button } from '@/components/ui/button'
+import { Plus } from 'lucide-react'
 
 export default function DashboardLayout({
   children,
@@ -46,7 +48,10 @@ export default function DashboardLayout({
                 </BreadcrumbList>
               </Breadcrumb>
             </div>
-            <NavAuth />
+            <div className='flex items-center gap-3'>
+              <Button size={'lg'} className='rounded-full' variant={'outline'}> <Plus /> Create</Button>
+              <NavAuth />
+            </div>
           </div>
         </header>
         {children}

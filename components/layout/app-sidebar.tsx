@@ -123,7 +123,6 @@ const data = {
       title: "Report",
       url: "#",
       icon: ChartPie,
-      isActive: true,
       items: [
         {
           title: "Create New Event",
@@ -141,7 +140,6 @@ const data = {
       title: "Bank & Credit",
       url: "#",
       icon: Landmark,
-      isActive: true,
       items: [
         {
           title: "Create New Event",
