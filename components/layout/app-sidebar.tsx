@@ -2,21 +2,27 @@
 
 import * as React from "react"
 import {
-  AudioWaveform,
+  Bolt,
   BookOpen,
   Bot,
-  Command,
+  CalendarFold,
+  ChartPie,
   Frame,
   GalleryVerticalEnd,
+  Gauge,
+  Home,
+  Landmark,
+  LogOut,
   Map,
+  Megaphone,
   PieChart,
   Settings2,
   SquareTerminal,
+  Tickets,
 } from "lucide-react"
 
 import { NavMain } from '@/components/layout/nav-main'
 import { NavProjects } from '@/components/layout/nav-projects'
-import { NavUser } from '@/components/layout/nav-user'
 import { TeamSwitcher } from '@/components/layout/team-switcher'
 import {
   Sidebar,
@@ -25,14 +31,25 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar'
-import { NavLogout } from "./nav-logout"
+import { NavReusable } from "./nav-reusable"
+import { NavHome } from "./nav-home"
 
 // This is sample data.
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+  home: {
+    name: "Home",
+    url: "/dashboard",
+    icon: Gauge,
+  },
+  logout: {
+    name: "Logout",
+    url: "#",
+    icon: LogOut,
+  },
+  setting: {
+    name: "Setting",
+    url: "#",
+    icon: Bolt,
   },
   teams: [
     {
@@ -43,29 +60,25 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Event",
       url: "#",
-      icon: SquareTerminal,
+      icon: CalendarFold,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Create New Event",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "List all events",
           url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
+        }
       ],
     },
     {
-      title: "Models",
+      title: "Tickets",
       url: "#",
-      icon: Bot,
+      icon: Tickets,
       items: [
         {
           title: "Genesis",
@@ -82,9 +95,9 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Marking",
       url: "#",
-      icon: BookOpen,
+      icon: Megaphone,
       items: [
         {
           title: "Introduction",
@@ -104,27 +117,40 @@ const data = {
         },
       ],
     },
+  ],
+  analysis: [
     {
-      title: "Settings",
+      title: "Report",
       url: "#",
-      icon: Settings2,
+      icon: ChartPie,
+      isActive: true,
       items: [
         {
-          title: "General",
+          title: "Create New Event",
           url: "#",
         },
         {
-          title: "Team",
+          title: "List all events",
+          url: "#",
+        }
+      ],
+    },
+  ],
+  finance: [
+    {
+      title: "Bank & Credit",
+      url: "#",
+      icon: Landmark,
+      isActive: true,
+      items: [
+        {
+          title: "Create New Event",
           url: "#",
         },
         {
-          title: "Billing",
+          title: "List all events",
           url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+        }
       ],
     },
   ],
@@ -154,11 +180,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavHome home={data.home} />
+        <NavMain title="Platform" items={data.navMain} />
+        <NavMain title="Analysis" items={data.analysis} />
+        <NavMain title="Finance" items={data.finance} />
+        <NavReusable title="Setting" item={data.setting} />
+        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavLogout />
+        <NavReusable title="Authentication" item={data.logout} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

@@ -1,6 +1,6 @@
 "use client"
 
-import { LogOut } from 'lucide-react';
+import { LogOut, type LucideIcon } from 'lucide-react';
 
 import {
   Collapsible,
@@ -13,10 +13,20 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 
-export function NavLogout() {
+export function NavReusable({
+  title,
+  item,
+}: {
+  title: string,
+  item: {
+    name: string
+    url: string
+    icon: LucideIcon
+  }
+}) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Authentication</SidebarGroupLabel>
+      <SidebarGroupLabel>{title}</SidebarGroupLabel>
       <SidebarMenu>
         <Collapsible
             asChild
@@ -24,11 +34,12 @@ export function NavLogout() {
             className="group/collapsible"
           >
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip="logout">
-                  <LogOut />
-                  <span>Logout</span>
-                  {/* <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" /> */}
-                </SidebarMenuButton>
+              <SidebarMenuButton asChild>
+                <a href={item.url}>
+                  <item.icon />
+                  <span>{item.name}</span>
+                </a>
+              </SidebarMenuButton>
             </SidebarMenuItem>
           </Collapsible>
       </SidebarMenu>
