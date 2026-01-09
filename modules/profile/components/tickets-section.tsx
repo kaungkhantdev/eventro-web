@@ -1,7 +1,7 @@
 import { TicketCard } from "./ticket-card"
 import { mockTickets } from "../data/tickets"
 import { Button } from "@/components/ui/button"
-import { Ticket, Filter } from "lucide-react"
+import { Ticket } from "lucide-react"
 
 interface TicketsSectionProps {
   showAll?: boolean
@@ -25,15 +25,14 @@ export function TicketsSection({ showAll = false }: TicketsSectionProps) {
             </p>
           </div>
         </div>
-        <Button variant="outline" className="" size="sm">
-          <Ticket className="w-3 h-3 mr-2" />
-          view all tickets
+        <Button variant="outline" className="rounded-full" size="sm">
+          View all tickets
         </Button>
       </div>
 
       {/* Tickets Grid */}
       {mockTickets.length > 0 ? (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {displayedTickets.map((ticket) => (
             <TicketCard key={ticket.id} ticket={ticket} />
           ))}

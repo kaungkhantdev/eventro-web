@@ -30,7 +30,7 @@ export function TicketCard({ ticket }: TicketCardProps) {
 
   return (
     <div
-      className={`relative flex h-32 w-full overflow-hidden border rounded-md shadow transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${isInactive ? "opacity-60 grayscale" : ""}`}
+      className={`relative flex h-32 w-full overflow-hidden border rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${isInactive ? "opacity-60 grayscale" : ""}`}
     >
       {/* Main Ticket Section - Cyan/Teal gradient */}
       <div className="relative flex flex-1 flex-col justify-between bg-linear-to-br from-cyan-400 via-cyan-500 to-teal-600 p-3">
@@ -80,7 +80,7 @@ export function TicketCard({ ticket }: TicketCardProps) {
           ))}
         </div>
         {/* Right semicircles (cut into stub section) */}
-        <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-between py-1">
+        {/* <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-between py-1">
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={`right-${i}`}
@@ -88,7 +88,7 @@ export function TicketCard({ ticket }: TicketCardProps) {
               style={{ marginRight: "-6px" }}
             />
           ))}
-        </div>
+        </div> */}
         {/* Vertical dashed line */}
         <div className="h-full w-px border-l border-dashed border-gray-300/50" />
       </div>
@@ -96,7 +96,7 @@ export function TicketCard({ ticket }: TicketCardProps) {
       {/* Stub Section */}
       <Link
         href={`/profile/tickets/${ticket.id}`}
-        className="relative flex flex-col items-start justify-between bg-gradient-to-b from-gray-50 to-white p-2 text-gray-800 group hover:from-cyan-50 hover:to-white transition-colors"
+        className="relative flex flex-col items-start justify-between bg-gradient-to-b from-gray-50 to-white ps-0 p-3 text-gray-800 group hover:from-cyan-50 hover:to-white transition-colors"
       >
         <div className="flex flex-col items-start w-full gap-1">
           <p className="text-sm font-semibold text-gray-500">
@@ -120,7 +120,7 @@ export function TicketCard({ ticket }: TicketCardProps) {
 
       {/* Status Indicator */}
       {isInactive && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+        <div className="absolute inset-0 flex items-center justify-center">
           <span className="rounded-full bg-black/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
             {ticket.status === "used" ? "Used" : "Expired"}
           </span>
