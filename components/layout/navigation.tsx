@@ -3,9 +3,9 @@
 import Image from "next/image"
 import Logo from '@/public/images/logo.svg'
 import { Button } from "@/components/ui/button"
+import NavAuth from "./nav-auth"
 
-
-export function Navigation() {
+export function Navigation({ login = false }: { login?: boolean}) {
 
   return (
       <nav className="">
@@ -24,11 +24,15 @@ export function Navigation() {
             </div>
 
             {/* authentication buttons */}
-            <div className="flex items-center gap-2">
-              <Button variant="ghost">Login</Button>
-              <Button className="rounded-full bg-gradient-primary hover:opacity-90 transition-all">Sign up</Button>
-            </div>
-            
+            {
+              login ?
+              <NavAuth />
+              :
+              <div className="flex items-center gap-2">
+                <Button variant="ghost">Login</Button>
+                <Button className="rounded-full bg-gradient-primary hover:opacity-90 transition-all">Sign up</Button>
+              </div>
+            }
           </div>
         </div>
       </nav>
