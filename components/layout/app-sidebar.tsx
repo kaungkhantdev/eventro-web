@@ -67,11 +67,11 @@ const data = {
       items: [
         {
           title: "Create New Event",
-          url: "#",
+          url: "/dashboard/event/create",
         },
         {
           title: "List all events",
-          url: "#",
+          url: "/dashboard/event",
         }
       ],
     },

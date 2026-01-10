@@ -1,4 +1,4 @@
-import type { Ticket } from "../components/ticket-card"
+import type { Ticket } from "../../ticket/components/ticket-card"
 
 export const mockTickets: Ticket[] = [
   {

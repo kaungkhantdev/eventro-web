@@ -1,4 +1,4 @@
-import { TicketCard } from "./ticket-card"
+import { TicketCard } from "../../ticket/components/ticket-card"
 import { mockTickets } from "../data/tickets"
 import { Button } from "@/components/ui/button"
 import { Ticket } from "lucide-react"

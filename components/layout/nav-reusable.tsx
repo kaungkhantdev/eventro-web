@@ -1,6 +1,6 @@
 "use client"
 
-import { LogOut, type LucideIcon } from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 
 import {
   Collapsible,
@@ -12,6 +12,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export function NavReusable({
   title,
@@ -24,6 +26,7 @@ export function NavReusable({
     icon: LucideIcon
   }
 }) {
+  const pathname = usePathname();
   return (
     <SidebarGroup>
       <SidebarGroupLabel>{title}</SidebarGroupLabel>
@@ -34,11 +37,14 @@ export function NavReusable({
             className="group/collapsible"
           >
             <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <a href={item.url}>
+              <SidebarMenuButton asChild
+                className="data-[is-active=true]:bg-primary data-[is-active=true]:text-white"
+                data-is-active={pathname === item.url}
+              >
+                <Link href={item.url}>
                   <item.icon />
                   <span>{item.name}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </Collapsible>

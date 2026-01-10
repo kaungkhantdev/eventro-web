@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, LogOut, type LucideIcon } from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 
 import {
   Collapsible,
@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export function NavHome({
   home,
@@ -36,10 +37,10 @@ export function NavHome({
                 className="data-[is-active=true]:bg-primary data-[is-active=true]:text-white"
                 data-is-active={pathname === home.url}
               >
-                <a href={home.url}>
+                <Link href={home.url}>
                   <home.icon />
                   <span>{home.name}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </Collapsible>

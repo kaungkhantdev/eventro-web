@@ -1,6 +1,6 @@
 import { EventCard } from "@/modules/event/components/event-card";
 import { mockEvents } from "@/modules/event/components/events-section";
-import { TicketsSection } from "./tickets-section";
+import { TicketsSection } from "@/modules/ticket/components/tickets-section";
 
 export default function GeneralContent() {
   return (

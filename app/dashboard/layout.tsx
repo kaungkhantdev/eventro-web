@@ -26,7 +26,7 @@ export default function DashboardLayout({
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+        <header className="mb-5 flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
           <div className="w-full flex items-center gap-2 justify-between">
             <div className="flex items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />
@@ -36,7 +36,7 @@ export default function DashboardLayout({
               />
               <Breadcrumb>
                 <BreadcrumbList>
-                  <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbItem className="hidden lg:block">
                     <BreadcrumbLink href="#">
                       Building Your Application
                     </BreadcrumbLink>
@@ -48,8 +48,8 @@ export default function DashboardLayout({
                 </BreadcrumbList>
               </Breadcrumb>
             </div>
-            <div className='flex items-center gap-3'>
-              <Button size={'lg'} className='rounded-full' variant={'outline'}> <Plus /> Create</Button>
+            <div className='flex items-center gap-3 pt-5'>
+              <Button size={'lg'} className='rounded-full hidden lg:flex' variant={'outline'}> <Plus /> Create event</Button>
               <NavAuth />
             </div>
           </div>

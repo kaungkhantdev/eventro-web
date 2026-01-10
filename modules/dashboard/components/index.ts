@@ -1,5 +1,7 @@
-export { TicketClassStats } from "./ticket-class-stats"
+export { SectionCards } from "./section-cards"
 export { OngoingEvents } from "./ongoing-events"
 export { UpcomingEvents } from "./upcoming-events"
 export { Notifications } from "./notifications"
 export { TicketSellingChart } from "./ticket-selling-chart"
+export { QuickActions } from "./quick-actions"
+export { EventPerformanceTable } from "./event-performance-table"
