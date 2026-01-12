@@ -58,7 +58,7 @@ export function CtaSection() {
         </p>
 
         {/* CTA Button */}
-        <Button className="px-6 h-15 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+        <Button className="px-6 h-15 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 bg-gradient-primary text-white hover:opacity-90 shadow-lg shadow-primary/30">
           Sign up for free
         </Button>
 

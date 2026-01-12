@@ -9,7 +9,7 @@ import { Navigation } from "@/components/layout/navigation";
 
 export default function Home() {
   return (
-    <div className="min-h-scree">
+    <div className="min-h-screen">
       {/* Navigation */}
       <Navigation /> 
 
