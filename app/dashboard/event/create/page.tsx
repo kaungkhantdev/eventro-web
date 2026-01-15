@@ -12,6 +12,7 @@ import {
   Step2EventDetails,
   Step3TicketsPricing,
 } from "@/modules/event/components";
+import { EventTicket } from "@/modules/event/types";
 
 export default function CreateEventPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -26,11 +27,9 @@ export default function CreateEventPage() {
     startDate: "",
     endDate: "",
     location: "",
-    ticketType: "",
-    price: "",
-    quantity: "",
-    salesEnd: "",
   });
+
+  const [tickets, setTickets] = useState<EventTicket[]>([]);
 
   const steps = [
     { number: 1, title: "Basic Information" },
@@ -135,16 +134,15 @@ export default function CreateEventPage() {
             {/* Step 3: Tickets & Pricing */}
             {currentStep === 3 && (
               <Step3TicketsPricing
-                formData={formData}
-                onInputChange={handleInputChange}
+                tickets={tickets}
+                onTicketsChange={setTickets}
               />
             )}
 
             {/* Navigation Buttons */}
             <div className="flex justify-between pt-6 border-t">
               <Button
-                className="rounded-full"
-                size={'lg'}
+                className="btn-lg-outline"
                 variant="outline"
                 onClick={handlePrevious}
                 disabled={currentStep === 1}
@@ -152,9 +150,9 @@ export default function CreateEventPage() {
                 Previous
               </Button>
               {currentStep < totalSteps ? (
-                <Button className="rounded-full bg-gradient-primary" size={'lg'} onClick={handleNext}>Next</Button>
+                <Button className="btn-lg-primary" onClick={handleNext}>Next</Button>
               ) : (
-                <Button className="rounded-full bg-gradient-primary" size={'lg'}>Create Event</Button>
+                <Button className="btn-lg-primary">Create Event</Button>
               )}
             </div>
           </div>
@@ -176,14 +174,14 @@ export default function CreateEventPage() {
                   date={formData.startDate ? new Date(formData.startDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "Date"}
                   time={formData.startDate ? new Date(formData.startDate).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : "Time"}
                   image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"
-                  price={formData.price ? `$${formData.price}` : "Free"}
+                  price={tickets[0]?.price ? `$${tickets[0].price}` : "Free"}
                   organizer={formData.organizer || "Organizer Name"}
                   category={formData.eventType || "General"}
                 />
               </div>
 
               {/* Ticket Preview Card */}
-              {formData.ticketType && (
+              {tickets.length > 0 && (
                 <TicketCard
                   ticket={{
                     id: "preview",
@@ -196,14 +194,14 @@ export default function CreateEventPage() {
                     eventDate: formData.startDate ? new Date(formData.startDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "Date",
                     eventTime: formData.startDate ? new Date(formData.startDate).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : "Time",
                     eventLocation: formData.location || "Location TBA",
-                    quantity: Number(formData.quantity) || 1,
-                    ticketType: formData.ticketType || "General",
-                    price: formData.price ? `$${formData.price}` : "Free",
+                    quantity: Number(tickets[0]?.quantity) || 1,
+                    ticketType: tickets[0]?.ticketType || "General",
+                    price: tickets[0]?.price ? `$${tickets[0].price}` : "Free",
                   }}
                 />
               )}
               <div className="w-full pt-6">
-                <EventPreviewSheet formData={formData} />
+                <EventPreviewSheet formData={formData} tickets={tickets} />
               </div>
             </CardContent>
           </Card>

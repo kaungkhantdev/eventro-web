@@ -25,3 +25,11 @@ export interface Attendee {
   ticketType: string;
   purchaseDate: string;
 }
+
+export interface EventTicket {
+  id: string;
+  ticketType: string;
+  price: string;
+  quantity: string;
+  salesEnd: string;
+}

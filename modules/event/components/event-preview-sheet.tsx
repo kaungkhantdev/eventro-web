@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { EventPreviewContent } from "./event-preview-content";
 import { EventPreviewSidebar } from "./event-preview-sidebar";
+import { EventTicket } from "@/modules/event/types";
 
 interface EventPreviewSheetProps {
   formData: {
@@ -19,22 +20,19 @@ interface EventPreviewSheetProps {
     startDate: string;
     endDate: string;
     location: string;
-    ticketType: string;
-    price: string;
-    quantity: string;
-    salesEnd: string;
   };
+  tickets: EventTicket[];
 }
 
-export function EventPreviewSheet({ formData }: EventPreviewSheetProps) {
+export function EventPreviewSheet({ formData, tickets }: EventPreviewSheetProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size={'lg'} className="rounded-full w-full">
+        <Button variant="outline" size={'lg'} className="btn-lg-outline">
           Detail Preview
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-full sm:max-w-4xl overflow-y-auto p-0">
+      <SheetContent className="w-full sm:max-w-4/5 overflow-y-auto p-0">
         <div className="p-8">
           <SheetHeader className="p-0">
             <SheetTitle className="text-3xl font-bold font-outfit p-0">
@@ -48,7 +46,7 @@ export function EventPreviewSheet({ formData }: EventPreviewSheetProps) {
           <div className="mt-8 space-y-8">
             <div className="grid lg:grid-cols-3 gap-8">
               <EventPreviewContent formData={formData} />
-              <EventPreviewSidebar formData={formData} />
+              <EventPreviewSidebar formData={formData} tickets={tickets} />
             </div>
           </div>
         </div>

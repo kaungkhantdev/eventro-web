@@ -1,13 +1,11 @@
 import Image from "next/image";
-import { MapPin, Tag, Users } from "lucide-react";
+import { MapPin, Tag } from "lucide-react";
 
 interface EventPreviewContentProps {
   formData: {
     eventName: string;
     description: string;
     eventType: string;
-    ticketType: string;
-    quantity: string;
     location: string;
   };
 }
@@ -41,17 +39,6 @@ export function EventPreviewContent({ formData }: EventPreviewContentProps) {
             <span className="px-3 py-1 bg-muted text-sm rounded-full flex items-center gap-1">
               <Tag className="size-3" />
               {formData.eventType}
-            </span>
-          )}
-          {formData.ticketType && (
-            <span className="px-3 py-1 bg-muted text-sm rounded-full">
-              {formData.ticketType}
-            </span>
-          )}
-          {formData.quantity && (
-            <span className="px-3 py-1 bg-muted text-sm rounded-full flex items-center gap-1">
-              <Users className="size-3" />
-              {formData.quantity} spots
             </span>
           )}
         </div>

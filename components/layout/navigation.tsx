@@ -29,8 +29,8 @@ export function Navigation({ login = false }: { login?: boolean}) {
               <NavAuth />
               :
               <div className="flex items-center gap-2">
-                <Button variant="ghost">Login</Button>
-                <Button className="rounded-full bg-gradient-primary hover:opacity-90 transition-all">Sign up</Button>
+                <Button variant="ghost" className="rounded-full">Login</Button>
+                <Button className="btn-primary">Sign up</Button>
               </div>
             }
           </div>
