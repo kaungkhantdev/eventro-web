@@ -137,8 +137,23 @@
     color: transparent;
     display: inline-block;
   }
-
+  
   .bg-gradient-primary {
     background: linear-gradient(to right, #00BBFF, #0EA5E9, #06B6D4);
   }
+
+  .btn-lg-outline {
+    @apply h-12 px-10 rounded-full hover:scale-105 hover:-translate-y-1 hover:opacity-90 transition-all;
+  }
+
+  .btn-lg-primary {
+    @apply h-12 px-10 rounded-full hover:scale-105 hover:-translate-y-1 hover:opacity-90 transition-all;
+    background: linear-gradient(to right, #00BBFF, #0EA5E9, #06B6D4);
+  }
+
+  .btn-primary {
+    @apply rounded-full hover:scale-105 hover:-translate-y-1 hover:opacity-90 transition-all;
+    background: linear-gradient(to right, #00BBFF, #0EA5E9, #06B6D4);
+  }
+
 }

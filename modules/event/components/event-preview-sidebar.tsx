@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Calendar, MapPin, Clock, Bookmark, Share2 } from "lucide-react";
+import { Calendar, MapPin, Clock, Bookmark, Share2, Ticket } from "lucide-react";
+import { EventTicket } from "@/modules/event/types";
 
 interface EventPreviewSidebarProps {
   formData: {
@@ -9,12 +10,33 @@ interface EventPreviewSidebarProps {
     startDate: string;
     endDate: string;
     location: string;
-    salesEnd: string;
-    price: string;
   };
+  tickets: EventTicket[];
 }
 
-export function EventPreviewSidebar({ formData }: EventPreviewSidebarProps) {
+export function EventPreviewSidebar({ formData, tickets }: EventPreviewSidebarProps) {
+  // Get earliest sales end date from tickets
+  const getEarliestSalesEnd = () => {
+    if (tickets.length === 0) return null;
+    const dates = tickets.map((t) => new Date(t.salesEnd).getTime());
+    const earliest = Math.min(...dates);
+    return new Date(earliest);
+  };
+
+  // Get price display (lowest price or range)
+  const getPriceDisplay = () => {
+    if (tickets.length === 0) return "FREE";
+    const prices = tickets.map((t) => parseFloat(t.price) || 0);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+
+    if (minPrice === 0 && maxPrice === 0) return "FREE";
+    if (minPrice === maxPrice) return minPrice === 0 ? "FREE" : `$${minPrice}`;
+    return minPrice === 0 ? `Free - $${maxPrice}` : `$${minPrice} - $${maxPrice}`;
+  };
+
+  const earliestSalesEnd = getEarliestSalesEnd();
+
   return (
     <div className="space-y-6 col-span-2 lg:col-span-1">
       <div className="space-y-6 lg:sticky lg:top-8">
@@ -82,13 +104,13 @@ export function EventPreviewSidebar({ formData }: EventPreviewSidebarProps) {
           </div>
 
           {/* Sales End Date */}
-          {formData.salesEnd && (
+          {earliestSalesEnd && (
             <div className="flex items-start gap-3">
               <Clock className="size-5 text-muted-foreground mt-0.5" />
               <div>
                 <p className="font-semibold">Sales end</p>
                 <p className="text-sm text-muted-foreground">
-                  {new Date(formData.salesEnd).toLocaleString("en-US", {
+                  {earliestSalesEnd.toLocaleString("en-US", {
                     month: "short",
                     day: "numeric",
                     year: "numeric",
@@ -100,6 +122,34 @@ export function EventPreviewSidebar({ formData }: EventPreviewSidebarProps) {
             </div>
           )}
         </div>
+
+        {/* Tickets Info */}
+        {tickets.length > 0 && (
+          <div className="border rounded-2xl p-6 space-y-4">
+            <div className="flex items-center gap-2">
+              <Ticket className="size-5 text-muted-foreground" />
+              <p className="font-semibold">Available Tickets</p>
+            </div>
+            <div className="space-y-2">
+              {tickets.map((ticket) => (
+                <div
+                  key={ticket.id}
+                  className="flex items-center justify-between py-2 border-b last:border-0"
+                >
+                  <div>
+                    <p className="font-medium text-sm">{ticket.ticketType}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {ticket.quantity} available
+                    </p>
+                  </div>
+                  <p className="font-semibold">
+                    {ticket.price === "0" ? "Free" : `$${ticket.price}`}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Attend Card */}
         <div className="border rounded-2xl p-6 space-y-4">
@@ -132,7 +182,7 @@ export function EventPreviewSidebar({ formData }: EventPreviewSidebarProps) {
             <div className="flex items-center justify-between gap-3">
               <div>
                 <span className="text-lg font-bold">
-                  {formData.price ? `$${formData.price}` : "FREE"}
+                  {getPriceDisplay()}
                 </span>
               </div>
               <div className="flex items-center gap-3">
