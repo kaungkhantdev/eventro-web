@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Calendar, MapPin, Clock, Bookmark, Share2, Ticket } from "lucide-react";
-import { EventTicket } from "@/modules/event/types";
+import { EventTicket } from "@/features/event/types";
 
 interface EventPreviewSidebarProps {
   formData: {

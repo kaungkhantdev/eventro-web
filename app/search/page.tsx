@@ -15,10 +15,10 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Input } from '@/components/ui/input'
-import { EventCard } from '@/modules/event/components/event-card'
+import { EventCard } from '@/features/event/components/event-card'
 import { Search, Sparkle } from 'lucide-react'
-import { categories } from "@/modules/event/data/categories"
-import { mockEvents } from "@/modules/event/components/events-section"
+import { categories } from "@/features/event/data/categories"
+import { mockEvents } from "@/features/event/components/events-section"
 
 const allCategories = {
     id: '1',

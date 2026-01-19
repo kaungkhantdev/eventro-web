@@ -1,8 +1,8 @@
-import { HeroSection } from "@/modules/event/components/hero-section";
-import { EventsSection } from "@/modules/event/components/events-section";
-import { CategoriesSection } from "@/modules/event/components/categories-section";
-import { HowItWorksSection } from "@/modules/event/components/how-it-works-section";
-import { CtaSection } from "@/modules/event/components/cta-section";
+import { HeroSection } from "@/features/event/components/hero-section";
+import { EventsSection } from "@/features/event/components/events-section";
+import { CategoriesSection } from "@/features/event/components/categories-section";
+import { HowItWorksSection } from "@/features/event/components/how-it-works-section";
+import { CtaSection } from "@/features/event/components/cta-section";
 import { Footer } from "@/components/layout/footer";
 import { Navigation } from "@/components/layout/navigation";
 

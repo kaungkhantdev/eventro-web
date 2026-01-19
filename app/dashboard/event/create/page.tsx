@@ -4,15 +4,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import { EventCard } from "@/modules/event/components/event-card";
-import { TicketCard } from "@/modules/ticket/components/ticket-card";
+import { EventCard } from "@/features/event/components/event-card";
+import { TicketCard } from "@/features/ticket/components/ticket-card";
 import {
   EventPreviewSheet,
   Step1BasicInfo,
   Step2EventDetails,
   Step3TicketsPricing,
-} from "@/modules/event/components";
-import { EventTicket } from "@/modules/event/types";
+} from "@/features/event/components";
+import { EventTicket } from "@/features/event/types";
 
 export default function CreateEventPage() {
   const [currentStep, setCurrentStep] = useState(1);

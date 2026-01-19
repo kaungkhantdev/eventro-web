@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { EventPreviewContent } from "./event-preview-content";
 import { EventPreviewSidebar } from "./event-preview-sidebar";
-import { EventTicket } from "@/modules/event/types";
+import { EventTicket } from "@/features/event/types";
 
 interface EventPreviewSheetProps {
   formData: {
