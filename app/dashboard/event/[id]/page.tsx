@@ -9,8 +9,8 @@ import {
   QuickStatsSidebar,
   AttendeesTable,
   AnalyticsDashboard,
-} from "@/modules/event/components";
-import { TicketsList } from "@/modules/ticket/components/tickets-list";
+} from "@/features/event/components";
+import { TicketsList } from "@/features/ticket/components/tickets-list";
 
 // Mock event data - replace with actual API call
 const mockEvent = {

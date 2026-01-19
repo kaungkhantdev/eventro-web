@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { EventTicket } from "@/modules/event/types";
+import { EventTicket } from "@/features/event/types";
 import { Trash2, Plus } from "lucide-react";
 import { useState } from "react";
 

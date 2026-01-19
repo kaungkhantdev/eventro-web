@@ -16,7 +16,7 @@ export function Step2EventDetails({
     <div className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="description">Event Description</Label>
-        <Textarea placeholder="Type your message here." value={formData.description} onChange={(e) => onInputChange("description", e.target.value)} />
+        <Textarea className="min-h-96" placeholder="Type your message here." value={formData.description} onChange={(e) => onInputChange("description", e.target.value)} />
       </div>
     </div>
   );

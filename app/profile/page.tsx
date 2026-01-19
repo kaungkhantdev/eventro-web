@@ -1,6 +1,6 @@
 import { SettingTabs } from "@/components/layout/setting-tabs";
-import AccountContent from "@/modules/profile/components/account-content";
-import GeneralContent from "@/modules/profile/components/general-content";
+import AccountContent from "@/features/profile/components/account-content";
+import GeneralContent from "@/features/profile/components/general-content";
 
 const tabs = [
   {

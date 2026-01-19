@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { categories } from '@/modules/event/data/categories'
+import { categories } from '@/features/event/data/categories'
 
 export function CategoriesSection() {
   return (
